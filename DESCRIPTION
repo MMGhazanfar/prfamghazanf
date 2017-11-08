@@ -1,16 +1,18 @@
 Package: prfamghazanf
 Type: Package
-Title: Package contains function for comparing daily crime trends in named suburbs (For homework 2)
+Title: Function to compare Level 3 Offences in Suburbs
 Version: 0.1.0
 Author: Mustafa Muhammad Ghazanfar
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: This package contains a function definition under the script HW_2_mghazanf.R.
-    The function, crime_correlate, takes three arguments: a dataframe of crime data, a description of 
-    offence commited and the names of two suburbs. The data of the latter 2 arguments should match the crime
-    data. After that the crime data is filtered to create a table of dates and total offences for said 
-    date in the suburb and offence category. This data is returned as a line plot that shows the specific 
-    number of offences on that day along with a general smoothing line that indicates the trend of increasing 
-    or decreasing number of offences overtime. 
+Description: This package contains a function definition under the script 
+	HW_2_mghazanf.R. The function, crime_correlate, takes three arguments: a 
+	dataframe of crime data, a description of offence commited and the names of
+	two suburbs. The data of the latter 2 arguments should match the crime 
+	data. After that the crime data is filtered to create a table of dates and 
+	total offences for said date in the suburb and offence category. This data 
+	is returned as a line plot that shows the specific number of offences on 
+	that day along with a general smoothing line that indicates the trend of 
+	increasing or decreasing number of offences overtime. 
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
