@@ -1,10 +1,7 @@
 #Homework Function goes here
-## QUESTION HW2 function:
-#Edit the function mentioned in class so that it will accept any of the offence_descriptions found in Offence Level 3 and will accept a 2-element vector of suburbs.
+## QUESTION ----
 
-
-
-#' By Mustafa Ghazanfar
+#' Mustafa Ghazanfar
 #'
 #' \code{crime_correlate} This is a function designed to take to input from a crime data sheet,
 #'		an offence description and two suburbs representing two suburbs. Then it will analyze
@@ -17,10 +14,7 @@
 #' @export
 #' @return  A ggplot object showing the correlation in offence count between the two input suburbs.
 #' @examples
-#' crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
-#' This wiil return a correlation count graph indicating the overlap in the crime and the an
-#' estimate of how many days that has happened in the fiscal year
-#'
+#' <one or two examples showing how to use the function>
 crime_correlate <-
   function(crime_data,
            offence_description,
@@ -66,26 +60,27 @@ crime_correlate <-
       crime_data[suburb %in% suburbs &
                    offence_level_3 == offence_description, list(total_offence_count = sum(offence_count)), by = list(suburb, date)]
 
-    # These lines will transform the plot_data structure to allow us to plot
-    # correlations. Try them out
-    plot_data[, suburb := plyr::mapvalues(suburb, suburbs, c("x", "y"))]
-    print('test3')
-    plot_data <- dcast(
-      plot_data,
-      date ~ suburb,
-      fun = sum,
-      fill = 0,
-      value.var = "total_offence_count"
-    )
+    #Code To set Title
+    st_y <-
+      format(as.Date(min(plot_data$date), format = "%d/%m/%Y"), "%Y")
+    en_y <-
+      format(as.Date(max(plot_data$date), format = "%d/%m/%Y"), "%Y")
+    chart_title <- paste('Data for', st_y, '-', en_y)
+
     ## Generate the plot
-    ggplot(plot_data, aes(x = x, y = y)) +
-      geom_count() +
-      scale_size_area() +
-      labs(x = suburbs[1],
-           y = suburbs[2],
-           title = format(as.Date(max(plot_data$date), format = "%d/%m/%Y"), "%Y")) +
-      scale_x_discrete(limits = c(0:max(plot_data$x))) +
-      scale_y_discrete(limits = c(0:max(plot_data$y)))
+    ggplot(plot_data, aes(x = date,
+                          y = total_offence_count,
+                          color = suburb)) +
+      geom_line() + geom_smooth(method = glm) +
+      labs(x = 'Date', y = 'Total Offences Commited', title = chart_title) +
+      theme(
+        plot.title = element_text(size = rel(2)),
+        panel.background = element_rect(fill = "white", color = "black"),
+        panel.border = element_rect(fill = NA),
+        panel.grid.minor.y = element_line(color = "grey95"),
+        panel.grid.major.y = element_line(color = "grey95"),
+        panel.grid.minor.x = element_line(color = "grey95"),
+        panel.grid.major.x = element_line(color = "grey95"),
+        strip.background = element_rect(colour = "black", fill = "Grey90")
+      )
   }
-=======
->>>>>>> 8d708e0c685a7407462d81704bf7c4e1ca5f57f6
