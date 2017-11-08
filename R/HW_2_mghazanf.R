@@ -1,7 +1,6 @@
-#Homework Function goes here
-## QUESTION ----
+## Fun based on HW2_Function_Suburb_and_offence_level_3.html ----
 
-#' Mustafa Ghazanfar
+#' Create a graph comparing L3 Offences in suburbs
 #'
 #' \code{crime_correlate} This is a function designed to take to input from a crime data sheet,
 #'		an offence description and two suburbs representing two suburbs. Then it will analyze
@@ -14,7 +13,9 @@
 #' @export
 #' @return  A ggplot object showing the correlation in offence count between the two input suburbs.
 #' @examples
-#' <one or two examples showing how to use the function>
+#' crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
+#' This wiil return a correlation count graph indicating the overlap in the crime and the an
+#' estimate of how many days that has happened in the fiscal year
 crime_correlate <-
   function(crime_data,
            offence_description,
