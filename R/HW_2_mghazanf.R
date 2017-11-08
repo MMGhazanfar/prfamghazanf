@@ -87,3 +87,5 @@ crime_correlate <-
       scale_x_discrete(limits = c(0:max(plot_data$x))) +
       scale_y_discrete(limits = c(0:max(plot_data$y)))
   }
+=======
+>>>>>>> 8d708e0c685a7407462d81704bf7c4e1ca5f57f6
