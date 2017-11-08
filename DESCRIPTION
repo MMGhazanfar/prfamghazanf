@@ -2,8 +2,8 @@ Package: prfamghazanf
 Type: Package
 Title: Function to compare Level 3 Offences in Suburbs
 Version: 0.1.0
-Author: Mustafa Muhammad Ghazanfar
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: person("Mustafa", "Ghazanfar", email = "mghazanf@andrew.cmu.edu",
+                  role = c("aut", "cre"))
 Description: This package contains a function definition under the script 
 	HW_2_mghazanf.R. The function, crime_correlate, takes three arguments: a 
 	dataframe of crime data, a description of offence commited and the names of
