@@ -24,12 +24,12 @@ crime_correlate <-
     require(ggplot2)
     
     # Error catching
-    print('test1')
+    #print('test1')
     if (!all.equal(2, length(suburbs)) |
         ((suburbs[1]) == (suburbs[2]))) {
       stop("Please enter two different Adelaide suburbs")
     }
-    print('test1.5')
+    #print('test1.5')
     expected_colnames <-
       c(
         "date",
@@ -47,7 +47,7 @@ crime_correlate <-
         paste(expected_colnames, collapse = ", ")
       ))
     }
-    print('test2')
+    #print('test2')
     # Check that the input suburbs and offence description exist in crime_data
     if (any(!suburbs %in% crime_data$suburb) |
         !offence_description %in% crime_data$offence_level_3) {
@@ -60,7 +60,7 @@ crime_correlate <-
     plot_data <-
       crime_data[suburb %in% suburbs &
                    offence_level_3 == offence_description, list(total_offence_count = sum(offence_count)), by = list(suburb, date)]
-    print("test3")
+    #print("test3")
     #Code To set Title
     st_y <-
       format(as.Date(min(plot_data$date), format = "%d/%m/%Y"), "%Y")
