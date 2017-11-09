@@ -24,7 +24,7 @@ A ggplot object showing the correlation in offence count between the two input s
 	and return a plot to show the number of incidents between the the suburbs for that year
 }
 \examples{
-crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
-This wiil return a correlation count graph indicating the overlap in the crime and the an
-estimate of how many days that has happened in the fiscal year
+     crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
+   #This wiil return a correlation count graph indicating the overlap in the crime and the an
+   #estimate of how many days that has happened in the fiscal year
 }
