@@ -13,16 +13,16 @@
 #' @export
 #' @return  A ggplot object showing the correlation in offence count between the two input suburbs.
 #' @examples
-#' crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
-#' This wiil return a correlation count graph indicating the overlap in the crime and the an
-#' estimate of how many days that has happened in the fiscal year
+#'      crime_correlate(crime,'OFFENCES AGAINST PROPERTY', c('NORTH ADELAIDE', 'PROSPECT'))
+#'    #This wiil return a correlation count graph indicating the overlap in the crime and the an
+#'    #estimate of how many days that has happened in the fiscal year
 crime_correlate <-
   function(crime_data,
            offence_description,
            suburbs) {
     require(data.table)
     require(ggplot2)
-
+    
     # Error catching
     print('test1')
     if (!all.equal(2, length(suburbs)) |
@@ -40,7 +40,7 @@ crime_correlate <-
         "offence_level_3",
         "offence_count"
       )
-
+    
     if (!all.equal(expected_colnames, colnames(crime_data))) {
       stop(paste(
         "Input table columns need to match: ",
@@ -53,21 +53,21 @@ crime_correlate <-
         !offence_description %in% crime_data$offence_level_3) {
       stop("Please verify that suburbs and offence  level 3 description match the crime data files")
     }
-
+    
     # Make a data table for plotting using data.table transformations
     # You will need to filter, summarise and group by
     ## Expect cols: "date", "suburb", "total_offence_count"
     plot_data <-
       crime_data[suburb %in% suburbs &
                    offence_level_3 == offence_description, list(total_offence_count = sum(offence_count)), by = list(suburb, date)]
-
+    print("test3")
     #Code To set Title
     st_y <-
       format(as.Date(min(plot_data$date), format = "%d/%m/%Y"), "%Y")
     en_y <-
       format(as.Date(max(plot_data$date), format = "%d/%m/%Y"), "%Y")
     chart_title <- paste('Data for', st_y, '-', en_y)
-
+    
     ## Generate the plot
     ggplot(plot_data, aes(x = date,
                           y = total_offence_count,
